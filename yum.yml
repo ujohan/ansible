@@ -1,0 +1,13 @@
+---
+- name: upgrade host
+  hosts: all
+  tasks:
+  - name: upgrade
+    yum:
+     name: '*'
+     state: latest
+    register: stat
+
+  - name: Print
+    debug:
+     msg: "{{ stat.results }}"
